@@ -6,13 +6,13 @@ export default class AloeMagic extends Plugin {
 	init() {
 		const editor = this.editor;
 
-		editor.model.schema.register( 'aloe', {
+		editor.model.schema.register( 'aloe-magic', {
 			inheritAllFrom: '$block',
 			allowAttributes: [ 'class', 'data-json' ],
 			isBlock: true,
 		} );
 
-		editor.conversion.elementToElement( { model: 'aloe', view: 'aloe' } );
+		editor.conversion.elementToElement( { model: 'aloe-magic', view: 'aloe-magic' } );
 		editor.conversion.attributeToAttribute( { model: 'data-json', view: 'data-json' } );
 
 		editor.ui.componentFactory.add( 'aloeMagic', locale => {
@@ -27,7 +27,7 @@ export default class AloeMagic extends Plugin {
 			// Callback executed once the image is clicked.
 			view.on( 'execute', () => {
 				editor.model.change( () => {
-					const content = '<aloe data-json="{cool : cool, top : top}">YEAH</aloe>';
+					const content = '<aloe-magic data-json="{cool : cool, top : top}">YEAH</aloe-magic>';
 					const viewFragment = editor.data.processor.toView( content );
 					const modelFragment = editor.data.toModel( viewFragment );
 
