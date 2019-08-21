@@ -48,6 +48,10 @@ ClassicEditor.builtinPlugins = [
 ];
 
 // Editor configuration.
+/*
+'|',
+'aloeMagic'
+ */
 ClassicEditor.defaultConfig = {
 	toolbar: {
 		items: [
@@ -57,9 +61,7 @@ ClassicEditor.defaultConfig = {
 			'italic',
 			'underline',
 			'|',
-			'imageUpload',
-			'|',
-			'aloeMagic'
+			'imageUpload'
 		]
 	},
 	image: {
