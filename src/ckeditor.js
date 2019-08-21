@@ -22,6 +22,7 @@ import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar';
 import ImageUpload from '@ckeditor/ckeditor5-image/src/imageupload';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
+import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/base64uploadadapter';
 import AloeMagic from './aloe-magic';
 
 export default class ClassicEditor extends ClassicEditorBase {}
@@ -44,6 +45,7 @@ ClassicEditor.builtinPlugins = [
 	ImageUpload,
 	Paragraph,
 	PasteFromOffice,
+	Base64UploadAdapter,
 	AloeMagic
 ];
 
