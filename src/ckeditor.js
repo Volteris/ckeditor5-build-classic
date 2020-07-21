@@ -12,6 +12,15 @@ import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
+import List from '@ckeditor/ckeditor5-list/src/list';
+import Indent from '@ckeditor/ckeditor5-indent/src/indent';
+import IndentBlock from '@ckeditor/ckeditor5-indent/src/indentblock';
+import Table from '@ckeditor/ckeditor5-table/src/table';
+import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
+import TableProperties from '@ckeditor/ckeditor5-table/src/tableproperties';
+import TableCellProperties from '@ckeditor/ckeditor5-table/src/tablecellproperties';
+import Font from '@ckeditor/ckeditor5-font/src/font';
 import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
 import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading';
@@ -35,6 +44,15 @@ ClassicEditor.builtinPlugins = [
 	Bold,
 	Italic,
 	Underline,
+	Alignment,
+	List,
+	Indent,
+	IndentBlock,
+	Table,
+	TableToolbar,
+	TableProperties,
+	TableCellProperties,
+	Font,
 	CKFinder,
 	EasyImage,
 	Heading,
@@ -54,16 +72,39 @@ ClassicEditor.builtinPlugins = [
 '|',
 'aloeMagic'
  */
+
 ClassicEditor.defaultConfig = {
 	toolbar: {
 		items: [
 			'heading',
 			'|',
+			'fontFamily',
+			'fontSize',
+			'|',
 			'bold',
 			'italic',
 			'underline',
 			'|',
-			'imageUpload'
+			'fontColor',
+			'fontBackgroundColor',
+			'|',
+			'alignment',
+			'numberedList',
+			'bulletedList',
+			'outdent',
+			'indent',
+			'|',
+			'insertTable',
+			'|',
+			'imageUpload',
+			'|',
+			'aloeMagic'
+		]
+	},
+	table: {
+		contentToolbar: [
+			'tableColumn', 'tableRow', 'mergeTableCells',
+			'tableProperties', 'tableCellProperties'
 		]
 	},
 	image: {
