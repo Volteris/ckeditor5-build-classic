@@ -16,11 +16,9 @@ The classic editor build for CKEditor 5. Read more about the [classic editor bui
 
 Important
 
-Delete node_modules in :
-ckeditor5-font
-ckeditor5-alignment
+Delete node_modules in @ckeditor/ckeditor5- submodules to avoid multiple load conflict.
 
-
+You can change endpoint for Aloé Magic in params.js
 
 ## Documentation
 
