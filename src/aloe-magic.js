@@ -70,7 +70,7 @@ export default class AloeMagic extends Plugin {
 				button.on( 'execute', event => {
 					const newValue = !filters[ item.filter ][ item.action ];
 					filters[ item.filter ][ item.action ] = newValue;
-					event.source.isOn = filters.card.display = newValue;
+					event.source.isOn = newValue;
 				} );
 				buttons.push( button );
 			} );

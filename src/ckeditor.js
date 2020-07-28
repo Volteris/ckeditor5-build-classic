@@ -103,6 +103,21 @@ ClassicEditor.defaultConfig = {
 			'aloeMagic'
 		]
 	},
+	fontFamily: {
+		supportAllValues: true
+	},
+	fontSize: {
+		options: [
+			9,
+			11,
+			13,
+			'default',
+			17,
+			19,
+			21
+		],
+		supportAllValues: true
+	},
 	table: {
 		contentToolbar: [
 			'tableColumn', 'tableRow', 'mergeTableCells',
