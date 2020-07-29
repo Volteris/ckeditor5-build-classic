@@ -1,6 +1,7 @@
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import imageIcon from './magic-solid.svg';
-import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
+// import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
+import SwitchButtonView from '@ckeditor/ckeditor5-ui/src/button/switchbuttonview';
 import SplitButtonView from '@ckeditor/ckeditor5-ui/src/dropdown/button/splitbuttonview';
 import axios from 'axios';
 import params from './params';
@@ -60,11 +61,12 @@ export default class AloeMagic extends Plugin {
 				{ filter: 'text', action: 'display', name: 'Texte' }
 			];
 			source.forEach( item => {
-				const button = new ButtonView();
+				const button = new SwitchButtonView();
 				button.set( {
 					label: item.name,
 					tooltip: false,
 					withText: true,
+					isToggleable: true,
 					isOn: filters[ item.filter ][ item.action ]
 				} );
 				button.on( 'execute', event => {
