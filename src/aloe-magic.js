@@ -10,23 +10,27 @@ import { addToolbarToDropdown, createDropdown } from '@ckeditor/ckeditor5-ui/src
 
 export default class AloeMagic extends Plugin {
 	init() {
-		const filters = {
-			card: {
-				display: true,
-				vowel: true,
-				consonant: true
-			},
-			line: {
-				display: true,
-				vowel: true,
-				consonant: true
-			},
-			text: {
-				display: true,
-				color: true,
-				background: true
-			}
-		};
+		// eslint-disable-next-line no-undef
+		let filters = JSON.parse( localStorage.getItem( 'filters' ) );
+		if ( !filters ) {
+			filters = {
+				card: {
+					display: true,
+					vowel: true,
+					consonant: true
+				},
+				line: {
+					display: true,
+					vowel: true,
+					consonant: true
+				},
+				text: {
+					display: true,
+					color: true,
+					background: true
+				}
+			};
+		}
 		const editor = this.editor;
 
 		editor.model.schema.register( 'aloe-magic', {
@@ -56,9 +60,15 @@ export default class AloeMagic extends Plugin {
 
 			const buttons = [];
 			const source = [
-				{ filter: 'card', action: 'display', name: 'Carte' },
-				{ filter: 'line', action: 'display', name: 'Ligne' },
-				{ filter: 'text', action: 'display', name: 'Texte' }
+				{ filter: 'card', action: 'display', name: 'CARTES' },
+				{ filter: 'card', action: 'consonant', name: '| Consonnes' },
+				{ filter: 'card', action: 'vowel', name: '| Voyelles' },
+				{ filter: 'line', action: 'display', name: 'LIGNES' },
+				{ filter: 'line', action: 'consonant', name: '| Consonnes' },
+				{ filter: 'line', action: 'vowel', name: '| Voyelles' },
+				{ filter: 'text', action: 'display', name: 'TEXTES' },
+				{ filter: 'text', action: 'color', name: '| Couleurs' },
+				{ filter: 'text', action: 'background', name: '| Formes' },
 			];
 			source.forEach( item => {
 				const button = new SwitchButtonView();
@@ -72,6 +82,8 @@ export default class AloeMagic extends Plugin {
 				button.on( 'execute', event => {
 					const newValue = !filters[ item.filter ][ item.action ];
 					filters[ item.filter ][ item.action ] = newValue;
+					// eslint-disable-next-line no-undef
+					localStorage.setItem( 'filters', JSON.stringify( filters ) );
 					event.source.isOn = newValue;
 				} );
 				buttons.push( button );
