@@ -1,5 +1,5 @@
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
-import imageIcon from './magic-solid.svg';
+import imageIcon from './aloe.svg';
 // import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
 import SwitchButtonView from '@ckeditor/ckeditor5-ui/src/button/switchbuttonview';
 import SplitButtonView from '@ckeditor/ckeditor5-ui/src/dropdown/button/splitbuttonview';
@@ -7,6 +7,7 @@ import axios from 'axios';
 import params from './params';
 import { v4 as uuidv4 } from 'uuid';
 import { addToolbarToDropdown, createDropdown } from '@ckeditor/ckeditor5-ui/src/dropdown/utils';
+import { toWidget } from '@ckeditor/ckeditor5-widget/src/utils';
 
 export default class AloeMagic extends Plugin {
 	init() {
@@ -42,7 +43,16 @@ export default class AloeMagic extends Plugin {
 			isObject: true,
 		} );
 
-		editor.conversion.elementToElement( { model: 'aloe-magic', view: 'aloe-magic' } );
+		editor.conversion.for( 'upcast' ).elementToElement( { model: 'aloe-magic', view: 'aloe-magic' } );
+		editor.conversion.for( 'dataDowncast' ).elementToElement( { model: 'aloe-magic', view: 'aloe-magic' } );
+		editor.conversion.for( 'editingDowncast' ).elementToElement( {
+			model: 'aloe-magic',
+			view: ( modelElement, viewWriter ) => {
+				const section = viewWriter.createContainerElement( 'aloe-magic' );
+
+				return toWidget( section, viewWriter );
+			}
+		} );
 		editor.conversion.attributeToAttribute( { model: 'data-json', view: 'data-json' } );
 		editor.conversion.attributeToAttribute( { model: 'contenteditable', view: 'contenteditable' } );
 		editor.conversion.attributeToAttribute( { model: 'id', view: 'id' } );
