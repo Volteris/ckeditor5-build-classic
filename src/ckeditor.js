@@ -229,11 +229,13 @@ ClassicEditor.defaultConfig = {
 			'Trebuchet MS, Helvetica, sans-serif',
 			'Verdana, Geneva, sans-serif',
 			'Merriweather, Times, serif',
-			'Pacifico, Helvetica, sans-serif',
-			'Calibri, Helvetica, sans-serif',
 			'Comic sans MS, Helvetica sans-serif',
-			'Lato, Helvetica, sans-serif',
-			'Montserrat, Helvetica, sans-serif'
+			'CRAYONE, Times, serif',
+			'CRAYONL, Times, serif',
+			'Cursif, Times, serif',
+			'Phone, Times, serif',
+			'PLUMBAE, Times, serif',
+			'PLUMBAL, Times, serif',
 		],
 		supportAllValues: true
 	},
