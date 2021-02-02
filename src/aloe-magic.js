@@ -116,7 +116,10 @@ export default class AloeMagic extends Plugin {
 				}
 
 				// Http Call
-				axios.post( params.endpoint, text, { headers: { 'Content-Type': 'application/json' } } ).then( function( response ) {
+				axios.get( params.endpoint, {
+					params: { text },
+					headers: { 'Content-Type': 'application/json' }
+				} ).then( function( response ) {
 					// handle success
 					// console.log( response );
 

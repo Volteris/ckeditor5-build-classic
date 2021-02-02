@@ -1,5 +1,5 @@
 const params = {
-	endpoint: 'http://51.15.206.64:8080/api/public/transform'
+	endpoint: 'http://163.172.135.56:8888/v1/transcribe'
 };
 
 export default params;
