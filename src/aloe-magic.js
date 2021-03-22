@@ -115,6 +115,9 @@ export default class AloeMagic extends Plugin {
 					}
 				}
 
+				text = text.replace( /[\n\r]/g, ' ' );
+				text = text.replace( '’', '\'' );
+
 				// Http Call
 				axios.get( params.endpoint, {
 					params: { text },
