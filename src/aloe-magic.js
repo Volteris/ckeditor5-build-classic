@@ -111,9 +111,10 @@ export default class AloeMagic extends Plugin {
 				let text = '';
 				for ( const item of range.getItems() ) {
 					if ( item.is( 'textProxy' ) ) {
-						text += item.data;
+						text += item.data + ' ';
 					}
 				}
+				text = text.slice( 0, -1 );
 
 				text = text.replace( /[\n\r]/g, ' ' );
 				text = text.replace( '’', '\'' );
